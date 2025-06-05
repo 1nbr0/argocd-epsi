@@ -6,7 +6,7 @@ metadata:
   labels:
     app: papache-rob
 spec:
-  replicas:
+  replicas: 6
   selector:
     matchLabels:
       app: papache-rob

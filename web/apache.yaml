@@ -1,12 +1,12 @@
 apiVersion: apps/v1
-kind: Deployement
+kind: Deployment
 metadata:
   name: papache-rob
   namespace: web-rob
   labels:
     app: papache-rob
 spec:
-  replicas: 1
+  replicas: 6
   selector:
     matchLabels:
       app: papache-rob

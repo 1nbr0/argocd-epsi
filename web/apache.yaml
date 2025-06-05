@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployement
 metadata:
-  name: papache
-  namespace: web
+  name: papache-rob
+  namespace: web-rob
   labels:
-    app: papache
+    app: papache-rob
 spec:
   replicas:
   selector:
     matchLabels:
-      app: papache
+      app: papache-rob
   template:
     metadata:
       labels:
-        app: papache
+        app: papache-rob
     spec:
       containers:
-        - name: papache
+        - name: papache-rob
           image: httpd:2.4.62-alpine3.21
           resources:
             requests:
@@ -25,12 +25,12 @@ spec:
           ports:
             - containerPort: 80
               protocol: TCP
-
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: papache-svc
-  namespace: web
+  name: papache-rob-svc
+  namespace: web-rob
 spec:
   type: LoadBalancer
   ports:
@@ -39,4 +39,4 @@ spec:
       targetPort: 80
       protocol: TCP
   selector:
-    app: papache
+    app: papache-rob
